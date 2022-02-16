@@ -3,7 +3,7 @@
  * @Author: dawdler
  * @Date: 2018-12-19 14:03:03
  * @LastModifiedBy: dawdler
- * @LastEditTime: 2022-02-16 18:07:14
+ * @LastEditTime: 2022-02-16 18:14:36
  -->
 
 ## 基于 element-ui 2.x 扩展下拉带树的组件 下拉树状菜单 支持虚拟滚动
@@ -238,6 +238,8 @@ export default {
                 placeholder: '请输入内容'
             },
             treeParams: {
+                // 开启虚拟滚动
+                // height: 300,
                 clickParent: false,
                 filterable: true,
                 'check-strictly': true,
