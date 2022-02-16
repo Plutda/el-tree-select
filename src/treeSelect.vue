@@ -32,6 +32,7 @@ export default {
                 placeholder: '请输入内容'
             },
             treeParams: {
+                height: 300,
                 clickParent: true,
                 filterable: true,
                 // 只想要子节点，不需要父节点
@@ -60,7 +61,7 @@ export default {
         // 手动更新树数据
         let data = [];
         const { label, children, parentId, value, rootId } = this.treeParams.props;
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 1000; i++) {
             let rootNode = {
                 [label]: `节点：${i}`,
                 [parentId]: rootId,
@@ -96,7 +97,7 @@ export default {
     methods: {
         _filterFun(value, data, node) {
             if (!value) return true;
-            return data.id.indexOf(value) !== -1;
+            return data.name.indexOf(value) !== -1;
         },
         // 树点击
         _nodeClickFun(data, node, vm) {

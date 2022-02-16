@@ -3,7 +3,7 @@
  * @Author: dawdler
  * @Date: 2018-12-19 14:03:03
  * @LastModifiedBy: dawdler
- * @LastEditTime: 2021-08-06 15:51:45
+ * @LastEditTime: 2022-02-16 16:16:29
  -->
 
 ## 基于 element-ui 2.x 扩展下拉带树的组件 下拉树状菜单
@@ -340,4 +340,11 @@ npm install el-tree-select --save-dev
 ```
 https://github.com/ayiaq1/el-tree-select
 
+```
+
+## TODO
+
+```
+1、library体积优化
+2、剔除全局样式(影响element-ui)
 ```

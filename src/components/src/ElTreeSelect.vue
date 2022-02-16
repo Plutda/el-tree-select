@@ -3,7 +3,7 @@
  * @Author: dawdler
  * @Date: 2018-12-19 14:03:03
  * @LastModifiedBy: dawdler
- * @LastEditTime: 2020-12-26 14:51:20
+ * @LastEditTime: 2022-02-16 16:12:13
  -->
 <template>
     <div class="el-tree-select" :class="selectClass">
@@ -15,12 +15,12 @@
             <el-input v-if="treeParams.filterable" v-model="keywords" size="mini" class="input-with-select mb10" @change="_searchFun">
                 <el-button slot="append" icon="el-icon-search"></el-button>
             </el-input>
-            <el-scrollbar tag="div" wrap-class="el-select-dropdown__wrap" view-class="el-select-dropdown__list" class="is-empty">
+            <!-- <el-scrollbar tag="div" wrap-class="el-select-dropdown__wrap" view-class="el-select-dropdown__list" class="is-empty"> -->
                 <!-- 树列表 -->
                 <el-tree ref="tree" v-show="data.length > 0" v-bind="treeParams" :data="data" :node-key="propsValue" :draggable="false" :current-node-key="ids.length > 0 ? ids[0] : ''" :show-checkbox="selectParams.multiple" :filter-node-method="filterNodeMethod ? filterNodeMethod : _filterFun" :render-content="treeRenderFun" @node-click="_treeNodeClickFun" @check="_treeCheckFun"></el-tree>
                 <!-- 暂无数据 -->
                 <div v-if="data.length === 0" class="no-data">暂无数据</div>
-            </el-scrollbar>
+            <!-- </el-scrollbar> -->
         </el-popover>
     </div>
 </template>
@@ -28,6 +28,8 @@
 <script>
 import { on, off } from '../../utils/dom';
 import { each, guid } from '../../utils/utils';
+import ElTree from './tree/tree';
+
 // @group api
 export default {
     name: 'el-tree-select',
@@ -131,6 +133,8 @@ export default {
             type: Object,
             /*
             Object默认参数：<br><br>
+            height为正值则开启虚拟滚动列表,否则采用普通列表：<br><br>
+            `height: undefined`<br><br>
             在有子级的情况下是否点击父级关闭弹出框,false 只能点击子级关闭弹出框：<br><br>
             `clickParent: false`<br><br>
             是否显示搜索框：<br><br>
@@ -151,6 +155,7 @@ export default {
             */
             default() {
                 return {
+                    height: undefined,
                     clickParent: false,
                     filterable: false,
                     leafOnly: false,
@@ -452,6 +457,9 @@ export default {
         // 显示弹出框的时候容错，查看是否和el宽度一致
         _popoverShowFun(val) {
             this._updateH();
+            setTimeout(() => {
+                this.$refs.tree.resetVirtualList();
+            }, 0);
         },
         // 判断是否隐藏弹出框
         _popoverHideFun(e) {
@@ -488,7 +496,9 @@ export default {
             this.$refs.tree.filter(val);
         }
     },
-    components: {},
+    components: {
+        ElTree
+    },
     beforeDestroy() {
         off(document, 'mouseup', this._popoverHideFun);
     }
