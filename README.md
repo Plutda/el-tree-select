@@ -3,16 +3,16 @@
  * @Author: dawdler
  * @Date: 2018-12-19 14:03:03
  * @LastModifiedBy: dawdler
- * @LastEditTime: 2022-02-16 16:16:29
+ * @LastEditTime: 2022-02-16 16:45:06
  -->
 
-## 基于 element-ui 2.x 扩展下拉带树的组件 下拉树状菜单
+## 基于 element-ui 2.x 扩展下拉带树的组件 下拉树状菜单 支持虚拟滚动
 
 ### Demo
 
-##### <a href="https://ayiaq1.github.io/el-tree-select/website/#/components/ElTreeSelect" target="_blank">在线 API</a>
+##### <a href="https://plutda.github.io/el-tree-select/website/#/components/ElTreeSelect" target="_blank">在线 API</a>
 
-##### <a href="https://ayiaq1.github.io/el-tree-select/storybook-static" target="_blank">在线测试</a>
+##### <a href="https://plutda.github.io/el-tree-select/storybook-static" target="_blank">在线测试</a>
 
 ###
 
@@ -65,6 +65,7 @@ selectClass  对el-select设置class,类型:String
 
 ```
 treeParams  :     支持el-tree 相关参数
+height: 数据量很大时,可以设置height值开启虚拟列表
 增加：'clickParent'
 treeParams.clickParent 类型：Boolean 默认：false
 在selectParams.multiple=false单选情况下点击节点，判断是否关闭弹出框
