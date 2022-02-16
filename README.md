@@ -3,7 +3,7 @@
  * @Author: dawdler
  * @Date: 2018-12-19 14:03:03
  * @LastModifiedBy: dawdler
- * @LastEditTime: 2022-02-16 16:45:06
+ * @LastEditTime: 2022-02-16 18:07:14
  -->
 
 ## 基于 element-ui 2.x 扩展下拉带树的组件 下拉树状菜单 支持虚拟滚动
@@ -333,13 +333,13 @@ export default {
 ## 安装
 
 ```
-npm install el-tree-select --save-dev
+npm install @pluto1219/el-tree-select --save-dev
 ```
 
 ## git 地址
 
 ```
-https://github.com/ayiaq1/el-tree-select
+https://github.com/plutda/el-tree-select
 
 ```
 

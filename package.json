@@ -1,5 +1,5 @@
 {
-  "name": "@Plutda/el-tree-select",
+  "name": "@pluto1219/el-tree-select",
   "version": "3.1.14",
   "description": "基于element-ui2.x扩展下拉带树的组件,目前已剥离组件可作为独立插件使用",
   "author": "dawdler",
@@ -18,7 +18,8 @@
     "vue-cli3",
     "element-ui",
     "select",
-    "tree"
+    "tree",
+    "virtual-scroll"
   ],
   "scripts": {
     "api": "vuese gen",
